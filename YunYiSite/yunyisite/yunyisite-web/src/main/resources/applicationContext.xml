@@ -9,16 +9,16 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd  
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
-	<import resource="classpath:mybatis-yunyi.xml" />
+	<import resource="classpath:mybatis-wong_user.xml" />
 	<import resource="classpath:activemq.xml" />
 
 	<mvc:interceptors>
 		<!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
-		<bean class="org.yunyisite.web.interceptor.FirstInterceptor"></bean>
+		<bean class="org.yoong.web.interceptor.FirstInterceptor"></bean>
 		<mvc:interceptor>
 			<!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
 			<mvc:mapping path="/category/add.do" />
-			<bean class="org.yunyisite.web.interceptor.SecondInterceptor"></bean>
+			<bean class="org.yoong.web.interceptor.SecondInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 

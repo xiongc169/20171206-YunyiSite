@@ -4,9 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.yoong.dao.CustomerMapper;
-import org.yoong.domain.Customer;
-import org.yoong.domain.CustomerExample;
 import org.yoong.service.CustomerService;
 
 @Service

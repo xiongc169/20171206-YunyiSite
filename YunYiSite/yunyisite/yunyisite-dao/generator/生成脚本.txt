@@ -9,4 +9,4 @@ http://blog.csdn.net/isea533/article/details/42102297
 
 java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig-sql.xml -overwrite
 java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig-mysql.xml -overwrite
-java -jar mybatis-generator-core-1.3.7.jar -configfile generatorConfig-yoong.xml -overwrite
+java -jar mybatis-generator-core-1.3.7.jar -configfile generatorConfig-wong_user.xml -overwrite

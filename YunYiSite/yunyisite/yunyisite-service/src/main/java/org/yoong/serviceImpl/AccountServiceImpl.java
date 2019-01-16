@@ -5,11 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.yoong.dao.AccountMapper;
-import org.yoong.dao.CustomerMapper;
-import org.yoong.domain.Account;
-import org.yoong.domain.AccountExample;
-import org.yoong.domain.Customer;
 import org.yoong.service.AccountService;
 
 @Service
