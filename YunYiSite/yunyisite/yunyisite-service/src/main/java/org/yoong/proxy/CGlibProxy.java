@@ -6,6 +6,7 @@ import org.springframework.cglib.beans.BeanGenerator;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
+import org.yoong.wong_user.domain.Account;
 
 /**
  * CGlib动态代理<br>
@@ -30,7 +31,7 @@ public class CGlibProxy implements MethodInterceptor {
 		// return obj;
 
 		generator.setSuperclass(clazz);
-		generator.addProperty("employeeDao", Accounts.class);
+		generator.addProperty("employeeDao", Account.class);
 		Object obj = generator.create();
 		return obj;
 	}

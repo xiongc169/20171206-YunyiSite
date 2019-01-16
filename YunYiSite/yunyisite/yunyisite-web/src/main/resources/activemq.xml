@@ -45,10 +45,10 @@
 	</bean>
 
 	<!-- 消息监听器 -->
-	<bean id="consumerMessageListener" class="downton.jms.ConsumerMessageListener" />
+	<bean id="consumerMessageListener" class="org.yoong.web.jms.ConsumerMessageListener" />
 
 	<!-- 可以获取session的MessageListener -->
-	<bean id="consumerSessionAwareMessageListener" class="downton.jms.ConsumerSessionAwareMessageListener">
+	<bean id="consumerSessionAwareMessageListener" class="org.yoong.web.jms.ConsumerSessionAwareMessageListener">
 		<property name="destination" ref="queueDestination" />
 	</bean>
 

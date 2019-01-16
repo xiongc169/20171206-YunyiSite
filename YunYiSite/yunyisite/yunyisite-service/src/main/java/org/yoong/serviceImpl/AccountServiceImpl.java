@@ -6,38 +6,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.yoong.service.AccountService;
+import org.yoong.wong_user.dao.AccountMapper;
+import org.yoong.wong_user.dao.CustomerMapper;
+import org.yoong.wong_user.domain.Account;
+import org.yoong.wong_user.domain.AccountExample;
+import org.yoong.wong_user.domain.Customer;
 
 @Service
 public class AccountServiceImpl implements AccountService {
 
-	@Autowired
-	private AccountMapper accountDao;
+    @Autowired
+    private AccountMapper accountDao;
 
-	@Autowired
-	private CustomerMapper customerDao;
+    @Autowired
+    private CustomerMapper customerDao;
 
-	@Override
-	public int addAccount(Account account) {
-		int effectRows = accountDao.insertSelective(account);
-		return effectRows;
-	}
+    @Override
+    public int addAccount(Account account) {
+        int effectRows = accountDao.insertSelective(account);
+        return effectRows;
+    }
 
-	@Override
-	@Transactional
-	public int addAccount(Customer customer, Account account) {
-		int effectRows = 0;
-		// effectRows = customerDao.insertSelective(customer);
-		// account.setCustomerId(customer.getCustomerId());
-		// double div = 100 / 0;
-		// accountDao.insertSelective(account);
-		return effectRows;
-	}
+    @Override
+    @Transactional
+    public int addAccount(Customer customer, Account account) {
+        int effectRows = 0;
+        effectRows = customerDao.insertSelective(customer);
+        account.setCustomerId(customer.getCustomerId());
+        double div = 100 / 0;
+        effectRows += accountDao.insertSelective(account);
+        return effectRows;
+    }
 
-	@Override
-	public List<Account> getAccount() {
-		AccountExample example = new AccountExample();
-		List<Account> accountList = accountDao.selectByExample(example);
-		return accountList;
-	}
+    @Override
+    public List<Account> getAccount() {
+        AccountExample example = new AccountExample();
+        List<Account> accountList = accountDao.selectByExample(example);
+        return accountList;
+    }
 
 }
