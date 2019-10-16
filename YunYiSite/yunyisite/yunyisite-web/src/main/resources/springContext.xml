@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd  
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
-    <context:component-scan base-package="org.yoong.web.*,org.yoong.serviceImpl"></context:component-scan>
+    <context:component-scan base-package="com.yunyi.web,com.yunyi.service"></context:component-scan>
 
     <tx:annotation-driven/>
     <!-- <aop:aspectj-autoproxy></aop:aspectj-autoproxy> -->
