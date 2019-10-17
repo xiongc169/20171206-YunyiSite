@@ -29,6 +29,7 @@ public class AccountController {
         account.setAccountId("ac-123456789");
         account.setContactName("xiaoshan");
         int effectRows = accountService.addAccount(account);
+        System.out.println(effectRows);
         return "Success";
     }
 
@@ -49,13 +50,20 @@ public class AccountController {
         account.setContactName("xiaoshan");
 
         int effectRows = accountService.addAccount(customer, account);
+        System.out.println(effectRows);
         return "Success";
     }
 
+    /**
+     * http://localhost:8090/account/get
+     *
+     * @return
+     */
     @ResponseBody
     @RequestMapping("/get")
     public String getAccount() {
-        List<Account> effectRows = accountService.getAccount();
+        List<Account> accounts = accountService.getAccount();
+        System.out.println(accounts.size());
         return "Success";
     }
 

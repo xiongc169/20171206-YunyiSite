@@ -13,37 +13,37 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class PhoenixAop {
 
-	public PhoenixAop() {
-		System.out.println("This is PhoenixAop Constructor");
-	}
+    public PhoenixAop() {
+        System.out.println("This is PhoenixAop Constructor");
+    }
 
-	@Pointcut("execution(* org.yoong.web.controller.controller.*())")
-	public void anyMethod() {
-	}
+    @Pointcut("execution(* com.yunyi.web.controller.*())")
+    public void anyMethod() {
+    }
 
-	@Before(value = "anyMethod()")
-	public void BeforeAdvice() throws Exception {
-		System.out.println("This is PhoenixAop BeforeAdvice");
-	}
+    @Before(value = "anyMethod()")
+    public void BeforeAdvice() throws Exception {
+        System.out.println("This is PhoenixAop BeforeAdvice");
+    }
 
-	@AfterReturning(value = "anyMethod()")
-	public void AfterReturningAdvice() throws Exception {
-		System.out.println("This is PhoenixAop AfterReturningAdvice");
-	}
+    @AfterReturning(value = "anyMethod()")
+    public void AfterReturningAdvice() throws Exception {
+        System.out.println("This is PhoenixAop AfterReturningAdvice");
+    }
 
-	@AfterThrowing(value = "anyMethod()")
-	public void AfterThrowingAdvice() throws Exception {
-		System.out.println("This is PhoenixAop AfterThrowingAdvice");
-	}
+    @AfterThrowing(value = "anyMethod()")
+    public void AfterThrowingAdvice() throws Exception {
+        System.out.println("This is PhoenixAop AfterThrowingAdvice");
+    }
 
-	@After(value = "anyMethod()")
-	public void AfterAdvice() throws Exception {
-		System.out.println("This is PhoenixAop AfterAdvice");
-	}
+    @After(value = "anyMethod()")
+    public void AfterAdvice() throws Exception {
+        System.out.println("This is PhoenixAop AfterAdvice");
+    }
 
-	@Around(value = "anyMethod()")
-	public void AroundAdvice() throws Exception {
-		System.out.println("This is PhoenixAop AroundAdvice");
-	}
+    @Around(value = "anyMethod()")
+    public void AroundAdvice() throws Exception {
+        System.out.println("This is PhoenixAop AroundAdvice");
+    }
 
 }

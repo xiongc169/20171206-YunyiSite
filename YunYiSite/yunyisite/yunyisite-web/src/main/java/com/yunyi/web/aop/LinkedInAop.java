@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LinkedInAop {
 
-	@Pointcut("execution(* org.yoong.web.controller.controller.*.*())")
-	public void query() {
+    @Pointcut("execution(* com.yunyi.web.controller.*.*())")
+    public void query() {
 
-	}
+    }
 
-	public LinkedInAop() {
-		System.out.println("LinkedInAop Constructor");
-	}
+    public LinkedInAop() {
+        System.out.println("LinkedInAop Constructor");
+    }
 
-	@Before(value = "query()")
-	public void QueryAdvice() {
-		System.out.println("LinkedInAop QueryAdvice");
-	}
+    @Before(value = "query()")
+    public void QueryAdvice() {
+        System.out.println("LinkedInAop QueryAdvice");
+    }
 }
