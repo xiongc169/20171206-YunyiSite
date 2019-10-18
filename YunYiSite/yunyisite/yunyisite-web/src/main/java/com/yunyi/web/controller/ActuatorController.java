@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import javax.servlet.ServletContext;
 import java.util.Objects;
 
 /**
@@ -22,6 +24,9 @@ public class ActuatorController {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
+
+    @Autowired
+    private ServletContext servletContext;
 
     /**
      * http://127.0.0.1:8090/actuator/getIoc
@@ -93,6 +98,12 @@ public class ActuatorController {
         //"org.springframework.context.event.internalEventListenerFactory"
         System.out.println(parentBeanNames.length);
         System.out.println(JSON.toJSONString(parentBeanNames));
+
+        Object root = servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);//org.springframework.web.context.WebApplicationContext.ROOT
+        System.out.println(root);
+
+        WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+        System.out.println(context);
         return "Success";
     }
 }
