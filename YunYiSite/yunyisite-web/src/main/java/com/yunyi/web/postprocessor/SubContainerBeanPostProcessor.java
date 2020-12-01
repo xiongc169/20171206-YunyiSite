@@ -3,12 +3,6 @@ package com.yunyi.web.postprocessor;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
-/**
- * @Desc SubContainerBeanPostProcessor
- * @Author
- * @Date
- * @Version 1.0
- */
 public class SubContainerBeanPostProcessor implements BeanPostProcessor {
 
     @Override

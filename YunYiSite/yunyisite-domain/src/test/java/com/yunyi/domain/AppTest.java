@@ -1,4 +1,4 @@
-package org.yunyisite.service;
+package com.yunyi.domain;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

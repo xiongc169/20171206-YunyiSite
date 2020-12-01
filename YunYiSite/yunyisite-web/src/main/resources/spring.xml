@@ -5,8 +5,8 @@
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd  
-        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
     <import resource="classpath:mybatis-wong_user.xml"/>
@@ -18,6 +18,7 @@
         <mvc:interceptor>
             <!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
             <mvc:mapping path="/category/add.do"/>
+            <mvc:exclude-mapping path="/category/add.do"/>
             <bean class="com.yunyi.web.interceptor.SecondInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

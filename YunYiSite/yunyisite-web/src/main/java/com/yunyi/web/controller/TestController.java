@@ -15,6 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * @Desc TestController
+ * <p>
+ * @Author yoong
+ * <p>
+ * @Date 2016年7月20日
+ * <p>
+ * @Version 1.0
+ */
 @Controller
 @RequestMapping("/test")
 public class TestController {

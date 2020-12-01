@@ -1,4 +1,4 @@
-package org.yoong_business.dao;
+package com.yunyi.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

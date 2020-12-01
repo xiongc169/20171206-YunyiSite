@@ -1,7 +1,5 @@
 package com.yunyi.web.controller;
 
-import java.util.List;
-
 import com.yunyi.domain.wong_user.Account;
 import com.yunyi.domain.wong_user.Customer;
 import com.yunyi.service.service.AccountService;
@@ -10,6 +8,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
+/**
+ * @Desc AccountController
+ * <p>
+ * @Author yoong
+ * <p>
+ * @Date 2016年7月20日
+ * <p>
+ * @Version 1.0
+ */
 @Controller
 @RequestMapping("/account")
 public class AccountController {
@@ -19,8 +28,6 @@ public class AccountController {
 
     /**
      * http://localhost:8090/account/add
-     *
-     * @return
      */
     @ResponseBody
     @RequestMapping("/add")
@@ -35,8 +42,6 @@ public class AccountController {
 
     /**
      * http://localhost:8090/account/transaction
-     *
-     * @return
      */
     @ResponseBody
     @RequestMapping("/transaction")
@@ -55,14 +60,15 @@ public class AccountController {
     }
 
     /**
-     * http://localhost:8090/account/get
-     *
-     * @return
+     * http://localhost:8095/account/get
      */
     @ResponseBody
     @RequestMapping("/get")
     public String getAccount() {
         List<Account> accounts = accountService.getAccount();
+        System.out.println(accounts.size());
+
+        accounts = accountService.getAccount();
         System.out.println(accounts.size());
         return "Success";
     }
