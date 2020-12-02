@@ -14,8 +14,8 @@
     </properties>
 
     <modules>
-        <module>yunyisite-domain</module>
         <module>yunyisite-dao</module>
+        <module>yunyisite-domain</module>
         <module>yunyisite-service</module>
         <module>yunyisite-web</module>
     </modules>

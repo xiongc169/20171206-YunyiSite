@@ -2,6 +2,7 @@ package com.yunyi.web.controller;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,9 +26,15 @@ import java.util.Objects;
 @RequestMapping("/actuator")
 public class ActuatorController {
 
+    /**
+     * SpringMVC容器
+     */
     @Autowired
     private WebApplicationContext webApplicationContext;
 
+    /**
+     * ServletContext，可以获取Spring容器、SpringMVC容器
+     */
     @Autowired
     private ServletContext servletContext;
 
@@ -40,8 +47,12 @@ public class ActuatorController {
     @ResponseBody
     @RequestMapping(path = "/getIoc", method = RequestMethod.GET)
     public String getIoc() {
+        String contextConfigLocation = servletContext.getInitParameter("contextConfigLocation");//contextConfigLocation = classpath:spring.xml
+        System.out.println(contextConfigLocation);
+
         String[] beanNames = webApplicationContext.getBeanDefinitionNames();
-        String[] parentBeanNames = Objects.requireNonNull(webApplicationContext.getParent()).getBeanDefinitionNames();
+        ApplicationContext parentContainer01 = webApplicationContext.getParent();
+        String[] parentBeanNames = Objects.requireNonNull(parentContainer01).getBeanDefinitionNames();
         //"linkedInAop",
         //"logAspect",
         //"phoenixAop",
@@ -102,11 +113,11 @@ public class ActuatorController {
         System.out.println(parentBeanNames.length);
         System.out.println(JSON.toJSONString(parentBeanNames));
 
-        Object root = servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);//org.springframework.web.context.WebApplicationContext.ROOT
-        System.out.println(root);
+        Object parentContainer02 = servletContext.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);//org.springframework.web.context.WebApplicationContext.ROOT
+        System.out.println(parentContainer02);
 
-        WebApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(servletContext);
-        System.out.println(context);
+        WebApplicationContext parentContainer03 = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+        System.out.println(parentContainer03);
         return "Success";
     }
 }
