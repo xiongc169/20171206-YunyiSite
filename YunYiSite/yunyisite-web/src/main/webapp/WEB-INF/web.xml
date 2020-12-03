@@ -16,7 +16,6 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <!-- Spring 配置文件 -->
     <context-param>
         <param-name>webAppRootKey</param-name>
         <param-value>tsts.root</param-value>
@@ -25,6 +24,16 @@
     <listener>
         <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
     </listener>
+
+    <context-param>
+        <param-name>hello</param-name>
+        <param-value>world</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>Jan</param-name>
+        <param-value>January</param-value>
+    </context-param>
 
     <!-- Spring MVC 配置文件 -->
     <servlet>
