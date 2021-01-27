@@ -40,6 +40,7 @@ public class ActuatorController {
 
     /**
      * SpringMVC容器(子容器)
+     * https://www.cnblogs.com/oukele/p/9887463.html
      */
     @Autowired
     private WebApplicationContext servletWebApplicationContext01;
