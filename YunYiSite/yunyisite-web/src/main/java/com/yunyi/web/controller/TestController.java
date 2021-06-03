@@ -1,19 +1,14 @@
 package com.yunyi.web.controller;
 
-import java.io.File;
-import java.io.IOException;
-
-import javax.jms.Destination;
-
-import com.yunyi.web.jms.Producer;
-import com.yunyi.domain.wong_user.Account;
+import com.yunyi.dao.yoong_rehearsal.TestMapper;
+import com.yunyi.domain.yoong_rehearsal.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * @Desc TestController
@@ -28,51 +23,24 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/test")
 public class TestController {
 
-    @Autowired
-    private Producer producer;
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Autowired
-    @Qualifier("queueDestination")
-    private Destination destination;
+    private TestMapper testMapper;
 
-    @RequestMapping("/jms.do")
-    public void jmsTest() {
-        try {
-            producer.sendMessage(destination, "this is Message");
-        } catch (Exception e) {
-            String msg = e.getMessage();
-        }
-    }
-
+    /**
+     * http://localhost:8090/test/add
+     */
     @ResponseBody
-    @RequestMapping("/json.do")
-    public Account jsonTest() {
-        Account order = new Account();
+    @RequestMapping("/add")
+    public void add() {
         try {
-            order.setAccountId("accountid");
+            Test test = new Test();
+            test.setName(format.format(new Date()));
+            int effectRows = testMapper.insertSelective(test);
+            System.out.println(effectRows);
         } catch (Exception e) {
             String msg = e.getMessage();
         }
-        return order;
     }
-
-    @RequestMapping("/upload.do")
-    public String upload() {
-        return "view/upload";
-    }
-
-    @RequestMapping("/uploaded.do")
-    public String upload2(@RequestParam("file") MultipartFile file) {
-        if (!file.isEmpty()) {
-            try {
-                System.out.println(file.getOriginalFilename());
-                file.transferTo(new File("d:\\files\\" + file.getOriginalFilename()));
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println(e.getMessage());
-            }
-        }
-        return "view/upload";
-    }
-
 }

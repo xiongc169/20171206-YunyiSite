@@ -9,6 +9,8 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
+    <!--TODO：Druid 数据源会导致卡死-->
+    <import resource="classpath:mybatis-yoong_rehearsal.xml"/>
     <import resource="classpath:mybatis-wong_user.xml"/>
     <import resource="classpath:activemq.xml"/>
 
