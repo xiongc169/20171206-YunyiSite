@@ -1,4 +1,4 @@
-package com.yunyi.service.serviceImpl;
+package com.yunyi.service.service;
 
 import java.util.List;
 

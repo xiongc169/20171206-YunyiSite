@@ -7,12 +7,10 @@ public class MyListener implements HttpSessionListener {
 
 	public void sessionCreated(HttpSessionEvent se) {
 		// TODO Auto-generated method stub
-
 	}
 
 	public void sessionDestroyed(HttpSessionEvent se) {
 		// TODO Auto-generated method stub
-
 	}
 
 }
